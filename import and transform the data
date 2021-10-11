@@ -29,9 +29,13 @@ for col in df.columns:
     pct_missing = np.mean(df[col].isnull())
     print('{} - {}%'.format(col, round(pct_missing*100)))
 
-# immediatly we are infromed that the budget has an issue null
-# as the ain focus is the revenue willl arrange the document to reflect the gross revenue. 
+# immediatly we are infromed that the budget has an alot more  null
+# lets begin to tranform and clean the data
+
+
+# as the we focus is the revenue willl arrange the document to reflect the gross revenue. 
 # IN decending oredr from highestvt lowest grosss
+
 df.sort_values(by="gross", inplace=False, ascending=False)
 
 # begin to look at trends 
