@@ -39,3 +39,5 @@ for col in df.columns:
 df.sort_values(by="gross", inplace=False, ascending=False)
 
 # begin to look at trends 
+# Next to drop any duplicates
+df.drop_duplicates()
