@@ -7,5 +7,5 @@ Gross revenue is the big deal in movie industry, what really affects the gross r
 Data Source:  https://www.kaggle.com/danielgrijalvas/movies
 
 Project Phases
-1. import data 
+1. import & tranform data
 2. 
