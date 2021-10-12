@@ -1,0 +1,22 @@
+# what factors directly increase the Gross revenue ?
+# My hypothesisis budget and company (that made the film) have highest correlatios
+# now to find the actual correlation in the data base, use the .corr() function
+# only works on numerical fields, we using the basic correlation method (pearson, kendall & spearman)
+
+df.corr() (# pearson method is the default)
+
+# using the default pearson 
+#using the seaborn module (aliased as sns)
+# high correlation between budget and gross
+
+correlation_matric = df.corr()
+sns.heatmap(correlation_matric, annot=True)
+
+# add more detail, for clarity
+
+correlation_matric = df.corr()
+sns.heatmap(correlation_matric, annot=True)
+plt.title("Correlation Matric For Numeric features")
+plt.xlabel("Movie features")
+plt.ylabel("Budget for film")
+plt.show
