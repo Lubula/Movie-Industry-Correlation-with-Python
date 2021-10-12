@@ -1,5 +1,6 @@
 # Importing the packages & modules used in this project
 # pd, np and sns are common alias for pandas, numpy & seaborn
+
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -20,7 +21,7 @@ pd.options.mode.chained_assignment = None
 
 df = pd.read_csv(r"C:\Users\mapul\Downloads\archive\movies.csv")
 
-#look at the data confirm its been loaded
+# look at the data confirm its been loaded
 df.head()
 
 # begin process of cleaning data which includes finding missing data (null columns)
@@ -29,15 +30,12 @@ for col in df.columns:
     pct_missing = np.mean(df[col].isnull())
     print('{} - {}%'.format(col, round(pct_missing*100)))
 
-# immediatly we are infromed that the budget has an alot more  null
-# lets begin to tranform and clean the data
+# immediatly we are infromed that the budget has an issue with multiple null
+# as the ain focus is the revenue willl arrange the document to reflect the gross revenue. 
+# IN decending order from highestet lowest gross
+# pd.set_option("display.max_rows", None) to display all the rows 
 
+df.sort_values(by="gross", inplace=False, ascending=False).head()
 
-# as the we focus is the revenue willl arrange the document to reflect the gross revenue. 
-# IN decending oredr from highestvt lowest grosss
-
-df.sort_values(by="gross", inplace=False, ascending=False)
-
-# begin to look at trends 
-# Next to drop any duplicates
-df.drop_duplicates()
+# drop any duplicates
+df.drop_duplicates().head()
