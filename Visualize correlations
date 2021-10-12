@@ -1,0 +1,29 @@
+# scatter plot with Budget vs Gross
+# as the focus on the dicovery from the correlations
+
+plt.scatter(x=df["budget"], y=df["gross"])
+plt.title("Budget Vs Gross Earnings")
+plt.xlabel("Gross Earning")
+plt.ylabel("Budget for Film")
+plt.show()
+
+# Regression Plot is what will plot the budget vs the gross
+# we willl us the seaborn module
+
+sns.regplot(x="budget", y="gross", data=df)
+
+# to imporve the visualisation, change the scatter plot color and the regression line
+sns.regplot(x="budget", y="gross", data=df, scatter_kws={"color":"green"}, line_kws={"color":"gold"})
+
+# once again take at look at the dataset 
+
+df.head()
+
+plt.scatter(x=df["votes"], y=df["gross"])
+plt.title("Votes Vs Gross Earnings")
+plt.xlabel("Votes")
+plt.ylabel("Budget for Film")
+plt.show()
+
+# add regression line using seaborn module to find pattern 
+sns.regplot(x="votes", y="gross", data=df, scatter_kws={"color":"green"}, line_kws={"color":"gold"})
