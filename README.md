@@ -10,6 +10,6 @@ Project Phases
 1. Collect and transform (clean & restructure ) data
 2. Find correlation in database
 3. Visualize correlations 
-4. Correlate entire database and Make consultions 
+4. Correlate entire database and Make conclustions 
 
 Extra: a jupyter notebook file with entire code (project) with visualisations
