@@ -1,0 +1,40 @@
+# lets shift and see if the production company affects gross
+# as stated before the correlation does not affect "objects" so certain columns were not calculated lets change that 
+
+df_numerized = df
+
+for col_name in df_numerized.columns:
+    if(df_numerized[col_name].dtype == 'object'):
+        df_numerized[col_name]= df_numerized[col_name].astype('category')
+        df_numerized[col_name] = df_numerized[col_name].cat.codes
+        
+df_numerized.head()
+
+# with all categories being calcluated (objects changed to categories), we can now view the complete picture
+
+correlation_matric = df_numerized.corr()
+sns.heatmap(correlation_matric, annot=True)
+plt.title("Correlation Matric For Numeric features")
+plt.xlabel("Movie features")
+plt.ylabel("Budget for film")
+plt.show
+
+
+# lets focus on the highest correlation 
+# lets use the unstack function
+# We can now take a look at the ones that have a high correlation (> 0.5)
+
+correlation_mat = df.apply(lambda x: x.factorize()[0]).corr()
+corr_pairs = correlation_mat.unstack()
+sorted_pairs = corr_pairs.sort_values(kind="quicksort")
+strong_pairs = sorted_pairs[abs(sorted_pairs) > 0.5]
+
+print(strong_pairs)
+
+
+# In conclusion the following have the higest correlation to the Gross revenue
+# the director of the film
+# the year released (films released after 2000 have more expose, more facilites to be viewed etcadig)
+# the year released and the star involved 
+# the writer of the film 
+# budget affects gross
